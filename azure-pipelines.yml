@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  MyAgentPool: 'devops-agent-vm'
+  name: 'MyAgentPool'
 
 variables:
   solution: '**/*.sln'
