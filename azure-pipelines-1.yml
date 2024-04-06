@@ -13,22 +13,12 @@ steps:
   inputs:
     packageType: sdk
     version: '6.x'
-
-- task: Npm@1
-  displayName: 'Run npm install'
+    includePreviewVersions: true
+- task: DotNetCoreCLI@2
   inputs:
-    verbose: false
-
-- script: './node_modules/.bin/node-sass DEVOPSWEBAPPLICATION/wwwroot --output DEVOPSWEBAPPLICATION/wwwroot'
-  displayName: 'Compile Sass assets'
-
-- task: gulp@1
-  displayName: 'Run gulp tasks'
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: DEVOPSWEBAPPLICATION/wwwroot
-
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
@@ -36,8 +26,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
   inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration Release'
+    command: 'publish'
     projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
