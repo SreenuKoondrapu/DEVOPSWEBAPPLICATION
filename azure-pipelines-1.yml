@@ -14,6 +14,7 @@ steps:
     packageType: sdk
     version: '8.x'
     includePreviewVersions: true
+    
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -31,6 +32,12 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
+    
+- task: CopyFiles@2
+  displayName: 'Copy Terraform files to artifacts'
+  inputs:
+    SourceFolder: Terraform
+    TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
 
 - task: PublishBuildArtifacts@1
   inputs:
