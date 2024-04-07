@@ -1,45 +1,80 @@
 trigger:
 - '*'
 
-pool:
-  name: 'MyAgentPool' 
-
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET SDK 8.x'
-  inputs:
-    packageType: sdk
-    version: '8.x'
-    includePreviewVersions: true
-    
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
+stages:
+- stage: 'Build'
+  jobs:
+  - job: 'Build'
+  pool:
+    name: 'MyAgentPool' 
+    variables: 
+    - group: 'Release'
+    steps:
+      - task: UseDotNet@2
+        displayName: 'Use .NET SDK 8.x'
+        inputs:
+          packageType: sdk
+          version: '8.x'
+          includePreviewVersions: true
+          
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'build'
+          projects: '**/*.csproj'
+          arguments: '--configuration $(buildConfiguration)'
+      - task: DotNetCoreCLI@2
+        displayName: 'Restore project dependencies'
+        inputs:
+          command: 'restore'
+          projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: true
-    
-- task: CopyFiles@2
-  displayName: 'Copy Terraform files to artifacts'
-  inputs:
-    SourceFolder: Terraform
-    TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'publish'
+          projects: '**/*.csproj'
+          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+          zipAfterPublish: true
+          
+      - task: CopyFiles@2
+        displayName: 'Copy Terraform files to artifacts'
+        inputs:
+          SourceFolder: Terraform
+          TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+
+- stage: 'Deploy'
+  jobs:
+  - job: 'Deploy'
+  pool:
+    name: 'MyAgentPool' 
+    variables:
+    - group: 'Release'
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'Free Trial (e50539cc-3930-4311-a790-a77009535076)'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          # Create a storage account
+          az storage account create \
+              --name $storageAccountName \
+              --resource-group $resourceGroupName \
+              --location $location \
+              --sku $sku
+          
+          # Get the storage account key
+          storageAccountKey=$(az storage account keys list --resource-group $resourceGroupName --account-name $storageAccountName --query "[0].value" -o tsv)
+          
+          #Create Storage Container
+          az storage container create \
+              --name $containerName \
+              --account-name $storageAccountName \
+              --account-key $storageAccountKey
