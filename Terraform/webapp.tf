@@ -16,7 +16,7 @@ provider "azurerm" {
 
 #Create Resoure Group
 resource "azurerm_resource_group" "webapp-rg" {
-  name     = "webapp-rg"
+  name     = "devops-webapp-rg"
   location = "East US"
 }
 
