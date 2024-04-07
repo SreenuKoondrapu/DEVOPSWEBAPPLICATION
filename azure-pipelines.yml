@@ -1,9 +1,6 @@
 trigger:
 - '*'
 
-variables:
-  buildConfiguration: 'Release'
-
 stages:
 - stage: 'Build'
   jobs:
@@ -21,10 +18,12 @@ stages:
           includePreviewVersions: true
           
       - task: DotNetCoreCLI@2
+        displayName: 'Build step'
         inputs:
           command: 'build'
           projects: '**/*.csproj'
           arguments: '--configuration $(buildConfiguration)'
+          
       - task: DotNetCoreCLI@2
         displayName: 'Restore project dependencies'
         inputs:
@@ -32,6 +31,7 @@ stages:
           projects: '**/*.csproj'
 
       - task: DotNetCoreCLI@2
+        displayName: 'Publish Project'
         inputs:
           command: 'publish'
           projects: '**/*.csproj'
@@ -45,6 +45,7 @@ stages:
           TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
 
       - task: PublishBuildArtifacts@1
+        displayName: 'Drop the Artifact'
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
           ArtifactName: 'drop'
