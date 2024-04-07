@@ -58,6 +58,7 @@ stages:
     - group: 'Release'
     steps:
     - task: AzureCLI@2
+      displayName: 'Azure CLI to create Resources'
       inputs:
         azureSubscription: 'Free Trial (e50539cc-3930-4311-a790-a77009535076)'
         scriptType: 'bash'
