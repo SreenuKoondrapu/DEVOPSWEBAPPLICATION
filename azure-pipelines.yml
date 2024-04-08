@@ -44,12 +44,11 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebApp@1
+  displayName: 'Azure App Service Deploy: website'
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Free Trial (e50539cc-3930-4311-a790-a77009535076)'
-    appType: 'webApp'
+    azureSubscription: 'Resource Manager - DEVOPS'
+    appName: '$(webAppName)'
     WebAppName: 'devops-webapplication-asp'
-    packageForLinux: '$((Build.ArtifactStagingDirectory)/**/*.zip'
+    package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
   
