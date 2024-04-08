@@ -1,0 +1,7 @@
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\DevopsWebApplication.exe
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\appsettings.json
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\DevopsWebApplication.dll
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\DevopsWebApplication.deps.json
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\DevopsWebApplication.runtimeconfig.json
+D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\obj\Release\net8.0\PubTmp\Out\DevopsWebApplication.pdb

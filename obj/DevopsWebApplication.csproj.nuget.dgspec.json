@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevopsWebApplication.csproj": {}
+    "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\DevopsWebApplication.csproj": {}
   },
   "projects": {
-    "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevopsWebApplication.csproj": {
+    "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\DevopsWebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevopsWebApplication.csproj",
+        "projectUniqueName": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\DevopsWebApplication.csproj",
         "projectName": "DevopsWebApplication",
-        "projectPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevopsWebApplication.csproj",
+        "projectPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\DevopsWebApplication.csproj",
         "packagesPath": "C:\\Users\\Sujaya\\.nuget\\packages\\",
-        "outputPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\obj\\",
+        "outputPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sujaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
