@@ -49,5 +49,4 @@ steps:
   inputs:
     azureSubscription: 'Resource Manager - DEVOPS'
     appName: 'devops-webapplication-asp'
-    package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
-  
+    package: '$(Build.artifactstagingdirectory)/*.zip'
