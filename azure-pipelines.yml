@@ -1,52 +1,47 @@
 trigger:
 - '*'
-
-stages:
-- stage: 'Build'
-  jobs:
-  - job: 'Build'
-  pool:
-    name: 'MyAgentPool' 
-    variables: 
-    - group: 'Release'
-    steps:
-      - task: UseDotNet@2
-        displayName: 'Use .NET SDK 8.x'
-        inputs:
-          packageType: sdk
-          version: '8.x'
-          includePreviewVersions: true
+pool:
+  name: 'MyAgentPool' 
+  
+variables: 
+  group: 'Release'
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 8.x'
+  inputs:
+    packageType: sdk
+    version: '8.x'
+    includePreviewVersions: true
           
-      - task: DotNetCoreCLI@2
-        displayName: 'Build step'
-        inputs:
-          command: 'build'
-          projects: '**/*.csproj'
-          arguments: '--configuration $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: 'Build step'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
 
-      - task: DotNetCoreCLI@2
-        displayName: 'Restore project dependencies'
-        inputs:
-          command: 'restore'
-          projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-      - task: DotNetCoreCLI@2
-        displayName: 'Publish step'
-        inputs:
-          command: 'publish'
-          projects: '**/*.csproj'
-          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-          zipAfterPublish: true
-          
-      - task: CopyFiles@2
-        displayName: 'Copy Terraform files to artifacts'
-        inputs:
-          SourceFolder: Terraform
-          TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
+- task: DotNetCoreCLI@2
+  displayName: 'Publish step'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
 
-      - task: PublishBuildArtifacts@1
-        displayName: 'Build Artifact Step'
-        inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          ArtifactName: 'drop'
+- task: CopyFiles@2
+  displayName: 'Copy Terraform files to artifacts'
+  inputs:
+    SourceFolder: Terraform
+    TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
+- task: PublishBuildArtifacts@1
+  displayName: 'Build Artifact Step'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
 
