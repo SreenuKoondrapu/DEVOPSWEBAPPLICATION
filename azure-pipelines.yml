@@ -51,4 +51,5 @@ steps:
     azureSubscription: 'Free Trial (e50539cc-3930-4311-a790-a77009535076)'
     appType: 'webApp'
     WebAppName: 'devops-webapplication-asp'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$((Build.ArtifactStagingDirectory)/**/*.zip'
+  
