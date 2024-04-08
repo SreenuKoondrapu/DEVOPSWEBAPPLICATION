@@ -1,6 +1,9 @@
 trigger:
 - '*'
 
+variables:
+  buildConfiguration: 'Release'
+
 stages:
 - stage: 'Build'
   jobs:
@@ -18,12 +21,10 @@ stages:
           includePreviewVersions: true
           
       - task: DotNetCoreCLI@2
-        displayName: 'Build step'
         inputs:
           command: 'build'
           projects: '**/*.csproj'
           arguments: '--configuration $(buildConfiguration)'
-          
       - task: DotNetCoreCLI@2
         displayName: 'Restore project dependencies'
         inputs:
@@ -31,7 +32,6 @@ stages:
           projects: '**/*.csproj'
 
       - task: DotNetCoreCLI@2
-        displayName: 'Publish Project'
         inputs:
           command: 'publish'
           projects: '**/*.csproj'
@@ -45,38 +45,7 @@ stages:
           TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
 
       - task: PublishBuildArtifacts@1
-        displayName: 'Drop the Artifact'
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
           ArtifactName: 'drop'
 
-- stage: 'Deploy'
-  jobs:
-  - job: 'Deploy'
-  pool:
-    name: 'MyAgentPool' 
-    variables:
-    - group: 'Release'
-    steps:
-    - task: AzureCLI@2
-      displayName: 'Azure CLI to create Resources'
-      inputs:
-        azureSubscription: 'Free Trial (e50539cc-3930-4311-a790-a77009535076)'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          # Create a storage account
-          az storage account create \
-              --name $storageAccountName \
-              --resource-group $resourceGroupName \
-              --location $location \
-              --sku $sku
-          
-          # Get the storage account key
-          storageAccountKey=$(az storage account keys list --resource-group $resourceGroupName --account-name $storageAccountName --query "[0].value" -o tsv)
-          
-          #Create Storage Container
-          az storage container create \
-              --name $containerName \
-              --account-name $storageAccountName \
-              --account-key $storageAccountKey

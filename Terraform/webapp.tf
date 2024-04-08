@@ -25,7 +25,7 @@ resource "azurerm_service_plan" "webapp-asp" {
   name                = "webapp-serviceplan"
   location            = azurerm_resource_group.devops-webapp-rg.location
   resource_group_name = azurerm_resource_group.devops-webapp-rg.name
-  os_type             = "Windows"
+  os_type             = "Linux"
   sku_name            = "F1"
 }
 #Create Azure App Service
