@@ -48,7 +48,7 @@ steps:
   displayName: 'Azure App Service Deploy: website'
   inputs:
     azureSubscription: 'Resource Manager - DEVOPS'
-    appName: '$(webAppName)'
+    appName: '$(WebAppName)'
     WebAppName: 'devops-webapplication-asp'
     package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
   
