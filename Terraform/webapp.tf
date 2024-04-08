@@ -15,23 +15,23 @@ provider "azurerm" {
 }
 
 #Create Resoure Group
-resource "azurerm_resource_group" "webapp-rg" {
-  name     = "webapp-rg"
+resource "azurerm_resource_group" "devops-webapp-rg" {
+  name     = "devops-webapp-rg"
   location = "East US"
 }
 
 #Create App Service Plan
 resource "azurerm_service_plan" "webapp-asp" {
   name                = "webapp-serviceplan"
-  location            = azurerm_resource_group.webapp-rg.location
-  resource_group_name = azurerm_resource_group.webapp-rg.name
-  os_type             = "Linux"
+  location            = azurerm_resource_group.devops-webapp-rg.location
+  resource_group_name = azurerm_resource_group.devops-webapp-rg.name
+  os_type             = "Windows"
   sku_name            = "F1"
 }
 #Create Azure App Service
 resource "azurerm_app_service" "devops-webapplication-asp" {
   name                = "devops-webapplication-asp"
-  location            = azurerm_resource_group.webapp-rg.location
-  resource_group_name = azurerm_resource_group.webapp-rg.name
+  location            = azurerm_resource_group.devops-webapp-rg.location
+  resource_group_name = azurerm_resource_group.devops-webapp-rg.name
   app_service_plan_id = azurerm_service_plan.webapp-asp.id
 }
