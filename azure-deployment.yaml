@@ -1,6 +1,0 @@
-trigger:
-- '*'
-
-pool:
-  name: 'MyAgentPool' 
-  
