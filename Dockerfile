@@ -9,12 +9,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["*.csproj", "./"]
 RUN dotnet restore 
-COPY . .
-WORKDIR "/src"
-RUN dotnet build "DEVOPSWEBAPPLICATION.csproj" -c Release -o /app/build
+COPY . ./
+#WORKDIR "/src"
+RUN dotnet build "*.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DEVOPSWEBAPPLICATION.csproj" -c Release -o /app/publish
+RUN dotnet publish "*.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
