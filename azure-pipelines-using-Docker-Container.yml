@@ -37,3 +37,9 @@ stages:
         containerRegistry: 'Container Registry Connection'
         tags: |
           $(tag)
+
+    - task: CopyFiles@2
+      displayName: 'Copy Terraform files to artifacts'
+      inputs:
+      SourceFolder: Terraform
+      TargetFolder: '$(build.SourceDirectory)/Terraform'
