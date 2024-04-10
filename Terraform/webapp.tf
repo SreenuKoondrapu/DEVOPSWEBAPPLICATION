@@ -7,6 +7,13 @@ terraform {
       version = "=3.0.0"
     }
   }
+  backend azurerm {
+    storage_account_name = "__storageAccountName__"
+      container_name       = "$(containerName)"
+      key                  = "terraform.tfstate"
+    access_key = "__storagekey__"
+  }
+  
 }
 
 # Configure the Microsoft Azure Provider

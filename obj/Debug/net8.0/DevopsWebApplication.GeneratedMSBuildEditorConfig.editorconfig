@@ -9,39 +9,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DevopsWebApplication
 build_property.RootNamespace = DevopsWebApplication
-build_property.ProjectDir = D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION\
+build_property.ProjectDir = d:\DEVOPSPROJECT\DevopsWebApplication\DevOpsWebApplication\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\DEVOPSPROJECT\DevopsWebApplication\DEVOPSWEBAPPLICATION
+build_property.MSBuildProjectDirectory = d:\DEVOPSPROJECT\DevopsWebApplication\DevOpsWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/Error.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/Index.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/Privacy.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/_ViewImports.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/_ViewStart.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEVOPSPROJECT/DevopsWebApplication/DEVOPSWEBAPPLICATION/Pages/Shared/_Layout.cshtml]
+[d:/DEVOPSPROJECT/DevopsWebApplication/DevOpsWebApplication/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-faeq1qrv9x
