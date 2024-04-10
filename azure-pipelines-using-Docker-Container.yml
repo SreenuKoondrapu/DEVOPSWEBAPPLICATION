@@ -42,4 +42,10 @@ stages:
       displayName: 'Copy Terraform files to artifacts'
       inputs:
       SourceFolder: Terraform
-      TargetFolder: '$(build.SourceDirectory)/Terraform'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/Terraform'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Terraform as an Artifact'
+      inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/Terraform'
+      ArtifactName: 'Terraform File'
