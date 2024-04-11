@@ -29,6 +29,7 @@ stages:
       name: 'MyAgentPool'
     steps:
     - task: Docker@2
+      condition: false
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
