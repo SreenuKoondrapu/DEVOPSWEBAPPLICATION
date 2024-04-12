@@ -27,6 +27,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  condition: false
   displayName: 'Publish step'
   inputs:
     command: 'publish'
@@ -35,18 +36,42 @@ steps:
     zipAfterPublish: true
 
 - task: CopyFiles@2
+  condition: false
   displayName: 'Copy Terraform files to artifacts'
   inputs:
     SourceFolder: Terraform
     TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
+
 - task: PublishBuildArtifacts@1
+  condition: false
   displayName: 'Build Artifact Step'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-#- task: AzureWebApp@1
-#  displayName: 'Azure App Service Deploy: website'
-#  inputs:
-#    azureSubscription: 'Resource Manager - DEVOPS'
-#    appName: 'devops-webapplication-asp'
-#    package: '$(Build.artifactstagingdirectory)/*.zip'
+
+- task: AzureWebApp@1
+  condition: false
+  displayName: 'Azure App Service Deploy: website'
+  inputs:
+    azureSubscription: 'Resource Manager - DEVOPS'
+    appName: 'devops-webapplication-asp'
+    package: '$(Build.artifactstagingdirectory)/*.zip'
+
+- task: SonarCloudPrepare@1
+  displayName: 'Add SonarCloud Prepare Step'
+  inputs:
+    SonarCloud: 'SonarCloudServiceConnection'
+    organization: 'sreenukoondrapukey'
+    scannerMode: 'MSBuild'
+    projectKey: 'SreenuKoondrapu_DevOpsWebApplication'
+    projectName: 'DevOpsWebApplication'
+        
+- task: SonarCloudAnalyze@1
+  displayName: 'Add SonarCloud Code Analysis Step'
+  inputs:
+  jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarCloudPublish@1
+  displayName: 'Add SonarCloud Publish Step'
+  inputs:
+  pollingTimeoutSec: '300'
