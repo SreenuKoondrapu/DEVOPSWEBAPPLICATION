@@ -68,10 +68,10 @@ steps:
         
 - task: SonarCloudAnalyze@1
   displayName: 'Add SonarCloud Code Analysis Step'
-  inputs:
-  jdkversion: 'JAVA_HOME_17_X64'
+    inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
 
 - task: SonarCloudPublish@1
   displayName: 'Add SonarCloud Publish Step'
-  inputs:
-  pollingTimeoutSec: '300'
+    inputs:
+    pollingTimeoutSec: '300'
