@@ -12,7 +12,16 @@ steps:
     packageType: sdk
     version: '8.x'
     includePreviewVersions: true
-          
+
+- task: SonarCloudPrepare@1
+  displayName: 'Add SonarCloud Prepare Step'
+  inputs:
+    SonarCloud: 'SonarCloudServiceConnection'
+    organization: 'sreenukoondrapukey'
+    scannerMode: 'MSBuild'
+    projectKey: 'SreenuKoondrapu_DevOpsWebApplication'
+    projectName: 'DevOpsWebApplication'
+            
 - task: DotNetCoreCLI@2
   displayName: 'Build step'
   inputs:
@@ -57,14 +66,6 @@ steps:
     appName: 'devops-webapplication-asp'
     package: '$(Build.artifactstagingdirectory)/*.zip'
 
-- task: SonarCloudPrepare@1
-  displayName: 'Add SonarCloud Prepare Step'
-  inputs:
-    SonarCloud: 'SonarCloudServiceConnection'
-    organization: 'sreenukoondrapukey'
-    scannerMode: 'MSBuild'
-    projectKey: 'SreenuKoondrapu_DevOpsWebApplication'
-    projectName: 'DevOpsWebApplication'
         
 - task: SonarCloudAnalyze@1
   displayName: 'Add SonarCloud Code Analysis Step'
