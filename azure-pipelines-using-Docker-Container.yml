@@ -40,13 +40,23 @@ stages:
           $(tag)
 
     - task: CopyFiles@2
+      condition: false
       displayName: 'Copy Terraform files to artifacts'
       inputs:
         SourceFolder: Terraform
         TargetFolder: '$(Build.ArtifactStagingDirectory)/Terraform'
 
     - task: PublishBuildArtifacts@1
+      condition: false
       displayName: 'Publish Terraform as an Artifact'
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)/Terraform'
         ArtifactName: 'Terraform File'
+    
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'SonarCloudServiceConnection'
+        organization: 'sreenukoondrapukey'
+        scannerMode: 'MSBuild'
+        projectKey: 'SreenuKoondrapu_DevOpsWebApplication'
+        projectName: 'DevOpsWebApplication'
