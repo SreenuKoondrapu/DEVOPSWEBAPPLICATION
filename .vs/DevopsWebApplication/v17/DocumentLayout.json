@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\",
+  "WorkspaceRootPath": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevOpsWebApplication\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{24DDC25C-EE06-4A24-B191-86149D2176A1}|DevopsWebApplication.csproj|d:\\devopsproject\\devopswebapplication\\devopswebapplication\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\Pages\\Index.cshtml",
+              "DocumentMoniker": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevOpsWebApplication\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
-              "ToolTip": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\Pages\\Index.cshtml",
+              "ToolTip": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevOpsWebApplication\\Pages\\Index.cshtml",
               "RelativeToolTip": "Pages\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-05T16:41:25.182Z",
               "EditorCaption": ""
@@ -37,13 +37,14 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\Pages\\Index.cshtml.cs",
+              "DocumentMoniker": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevOpsWebApplication\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
-              "ToolTip": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DEVOPSWEBAPPLICATION\\Pages\\Index.cshtml.cs",
+              "ToolTip": "D:\\DEVOPSPROJECT\\DevopsWebApplication\\DevOpsWebApplication\\Pages\\Index.cshtml.cs",
               "RelativeToolTip": "Pages\\Index.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T16:40:57.438Z"
+              "WhenOpened": "2024-04-05T16:40:57.438Z",
+              "EditorCaption": ""
             }
           ]
         }
