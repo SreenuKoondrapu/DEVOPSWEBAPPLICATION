@@ -16,7 +16,7 @@ steps:
 - task: SonarCloudPrepare@1
 # ---------------------SonarCloud piece of code-----------------------------------------------
   displayName: 'Add SonarCloud Prepare Step'
-  condition: false
+  condition: true
   inputs:
     SonarCloud: 'SonarCloudServiceConnection'
     organization: 'sreenukoondrapukey'
@@ -27,7 +27,7 @@ steps:
 - task: SnykSecurityScan@1
   inputs:
     serviceConnectionEndpoint: 'snykconnectionforazure'
-    testType: 'container'
+    testType: 'app'
     monitorWhen: 'always'
     failOnIssues: true
 - task: DotNetCoreCLI@2
@@ -78,13 +78,13 @@ steps:
 - task: SonarCloudAnalyze@1
 # ---------------------SonarCloud piece of code-----------------------------------------------
   displayName: 'Add SonarCloud Code Analysis Step'
-  condition: false
+  condition: true
   inputs:
     jdkversion: 'JAVA_HOME_17_X64'
 
 - task: SonarCloudPublish@1
 # ---------------------SonarCloud piece of code-----------------------------------------------
   displayName: 'Add SonarCloud Publish Step'
-  condition: false
+  condition: true
   inputs:
     pollingTimeoutSec: '300'
